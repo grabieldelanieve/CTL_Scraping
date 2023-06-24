@@ -1,4 +1,4 @@
-package org.example;
+package delanieve.test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class CartaNatal {
 
     @Test()
-    public void test1 () throws InterruptedException {
+    public void test1() throws InterruptedException {
 
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         WebDriver driver = new ChromeDriver();
@@ -63,6 +63,11 @@ public class CartaNatal {
         driver.close();
     }
 
+    @Test
+    public void test2() {
+        System.out.println("Hola Soy el Test #2");
+    }
+
     public void cartaNatalData(WebDriver driver) {
 
         List<String> tablas;
@@ -82,14 +87,14 @@ public class CartaNatal {
 
         planetas = planetsElements.stream().map(s -> s.getText()).collect(Collectors.toList());
         tablas = rows.stream().map(s -> s.getText()).collect(Collectors.toList());
-        imgDomElements = signs.stream().map(s->s.getDomProperty("title")).collect(Collectors.toList());
+        imgDomElements = signs.stream().map(s -> s.getDomProperty("title")).collect(Collectors.toList());
 
         // Planetas
-        for(int i=11; i<=20; i++) {
+        for (int i = 11; i <= 20; i++) {
             pla.add(planetas.get(i));
         }
         // Signos
-        for(int i=0; i<10; i++){
+        for (int i = 0; i < 10; i++) {
             signos.add(imgDomElements.get(i));
         }
         // Coordenadas
@@ -103,7 +108,7 @@ public class CartaNatal {
         }
         // Displaying data from comand line
         while (coordenadas.size() > counter) {
-            System.out.println(pla.get(counter) + " | "+ signos.get(counter) + " | " + coordenadas.get(counter)+ " | " + casas.get(counter));
+            System.out.println(pla.get(counter) + " | " + signos.get(counter) + " | " + coordenadas.get(counter) + " | " + casas.get(counter));
             counter++;
         }
     }
