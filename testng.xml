@@ -3,10 +3,9 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/grabiel/IdeaProjects/CartaNatal">
         <classes>
-            <class name="delanieve.test.CartaNatal">
+            <class name="delanieve.test.mainPage">
                 <methods>
                     <include name="test1"/>
-                    <include name="test2"/>
                 </methods>
             </class>
         </classes>
