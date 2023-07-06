@@ -18,5 +18,7 @@ public class mainPage extends BaseTest {
         Thread.sleep(2000);
         homePage.selectCity();
         homePage.submitForm();
+
+        // Darlin estuvo por aqui :)
     }
 }
