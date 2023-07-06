@@ -5,7 +5,7 @@
         <classes>
             <class name="delanieve.test.mainPage">
                 <methods>
-                    <include name="test1"/>
+                    <include name="TC01_FillingFormInputs"/>
                 </methods>
             </class>
         </classes>

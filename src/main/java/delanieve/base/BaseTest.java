@@ -1,6 +1,6 @@
-package delanieve.TestComponents;
+package delanieve.base;
 
-import delanieve.pageobjects.HomePage;
+import delanieve.pages.HomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,6 +13,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     public WebDriver driver;
@@ -21,7 +22,7 @@ public class BaseTest {
     public WebDriver initializeDriver() throws IOException {
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
-                + "\\src\\main\\java\\delanieve\\resources\\GlobalData.properties");
+                + "\\src\\main\\java\\delanieve\\config\\GlobalData.properties");
         prop.load(fis);
         String browserName = prop.getProperty("browser");
         if (browserName.equalsIgnoreCase("chrome")) {
@@ -36,6 +37,9 @@ public class BaseTest {
         }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
+
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
         return driver;
     }
 
@@ -47,7 +51,7 @@ public class BaseTest {
         return homePage;
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         driver.close();
     }
